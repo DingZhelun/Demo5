@@ -99,10 +99,10 @@
                             <label><input class="form-inline" id = "Internet" name="service" type="checkbox" value="Internet ">Internet</label>
                         </div>
                         <br>
-                        <div class="form-group">
+                        <div class="form-group row">
                             <p>Verification Code</p>
-                            <input style="width: 70%" class="form-control col-lg-1" type="text" class="form-control" id="verification_code" placeholder="verification code">
-                            <input style="width: 30%" class="btn btn-info col-lg-1" id="send_code" type="button" value="Send Code" onclick="return InputCheck()">
+                            <input style="width: 70%" class="form-control col-lg-1" type="text" id="verification_code" placeholder="verification code">
+                            <input style="width: 30%" class="btn btn-info col-lg-2" id="send_code" type="button" value="Send Code" onclick="return InputCheck()">
                         </div>
                         <div class="form-group">
                             <input class="btn btn-primary" id="submit" type="button" name="submit" value="Sign Up" onclick="return InputCheck()">

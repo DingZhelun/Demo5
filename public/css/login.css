@@ -117,7 +117,7 @@
     transition: all 0.5s ease 0s;
 }
 .bg{
-    background-image: url("public/img/background.png");
+    background-image: url("../img/background.png");
     background-position: center 0;
     background-repeat: no-repeat;
     background-attachment: fixed;
