@@ -17,3 +17,9 @@ Route::get('/', function () {
 Route::get('login',"loginController@login");
 Route::post('dologin',"loginController@doLogin");
 Route::get('signup',"signupController@signup");
+Route::get('getBuilding',"signupController@getBuilding");
+Route::get('getApartment',"signupController@getApartment");
+Route::get('getService',"signupController@getService");
+Route::get('getEmail',"signupController@getEmail");
+Route::get('sendCode',"signupController@sendCode");
+Route::get('register',"signupController@register");

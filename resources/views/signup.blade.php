@@ -39,26 +39,27 @@
             <div class="row">
                 <div class="col-md-offset-3 col-md-6">
                     <form class="form-horizontal" method="post" name="SignUp" onsubmit="return InputCheck()">
+                        {{csrf_field()}}
                         <span class="heading">Sign Up</span>
                         <div class="form-group">
                             <p>Email</p>
-                            <input type="email" class="form-control" id="email" placeholder="email">
+                            <input name="email" type="email" class="form-control" id="email" placeholder="email">
                         </div>
                         <div class="form-group">
                             <p>Password</p>
-                            <input type="password" class="form-control" id="password" placeholder="password">
+                            <input name="password" type="password" class="form-control" id="password" placeholder="password">
                         </div>
                         <div class="form-group">
                             <p>Name</p>
-                            <input type="text" class="form-control" id="name" placeholder="name">
+                            <input name="name" type="text" class="form-control" id="name" placeholder="name">
                         </div>
                         <div class="form-group">
                             <p>Phone</p>
-                            <input type="text" class="form-control" id="phone" placeholder="phone">
+                            <input name="phone" type="text" class="form-control" id="phone" placeholder="phone">
                         </div>
                         <div class="form-group">
                             <p>Address</p>
-                            <input type="text" class="form-control" id="address" placeholder="address">
+                            <input name="address" type="text" class="form-control" id="address" placeholder="address">
                         </div>
                         <div class="form-group">
                             <p>Your Preference</p>
@@ -70,17 +71,17 @@
                         </div>
                         <div class="form-group" id="subdivision_text">
                             <p>Subdivision</p>
-                            <input type="text" class="form-control" id="subdivision" placeholder="subdivision">
+                            <input name="subdivision" type="text" class="form-control" id="subdivision" placeholder="subdivision">
                         </div>
                         <div class="form-group" id="building_text">
                             <p>Building</p>
-                            <select class="form-control" name="building" id="building">
+                            <select name="building" class="form-control"  id="building">
                                 <option value="none" hidden>--select--</option>
                             </select>
                         </div>
                         <div class="form-group" id="apartment_text">
                             <p>Apartment</p>
-                            <select class="form-control" name="apartment" id="apartment">
+                            <select name="apartment" class="form-control"  id="apartment">
                                 <option value="none" hidden>--select--</option>
                             </select>
                         </div>
@@ -93,15 +94,15 @@
                             </select>
                         </div>
                         <div id="service_div">
-                            <label><input class="form-inline" id = "water" name="service" type="checkbox" value="water ">water</label>
-                            <label><input class="form-inline" id = "gas" name="service" type="checkbox" value="gas ">gas</label>
-                            <label><input class="form-inline" id = "electricity" name="service" type="checkbox" value="electricity ">electricity</label>
-                            <label><input class="form-inline" id = "Internet" name="service" type="checkbox" value="Internet ">Internet</label>
+                            <label><input class="form-inline" id = "water" name="water" type="checkbox" value="water ">water</label>
+                            <label><input class="form-inline" id = "gas" name="gas" type="checkbox" value="gas ">gas</label>
+                            <label><input class="form-inline" id = "electricity" name="electricity" type="checkbox" value="electricity ">electricity</label>
+                            <label><input class="form-inline" id = "Internet" name="Internet" type="checkbox" value="Internet ">Internet</label>
                         </div>
                         <br>
                         <div class="form-group row">
                             <p>Verification Code</p>
-                            <input style="width: 70%" class="form-control col-lg-1" type="text" id="verification_code" placeholder="verification code">
+                            <input style="width: 70%" name="code" class="form-control col-lg-1" type="text" id="verification_code" placeholder="verification code">
                             <input style="width: 30%" class="btn btn-info col-lg-2" id="send_code" type="button" value="Send Code" onclick="return InputCheck()">
                         </div>
                         <div class="form-group">

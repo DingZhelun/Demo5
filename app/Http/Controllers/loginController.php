@@ -13,7 +13,7 @@ class loginController extends Controller
         return view('login');
     }
 
-    public function doLogin(Request &$request){
+    public function doLogin(Request $request){
         $input = $request->except("_token");
 
         if ($input['email']==""||$input['password']==""){

@@ -44,8 +44,9 @@ $(function(){
         var subdivision = $('#subdivision').val();
         var role = $('#role').val();
         $.ajax({
-            type: "post",
-            url: "php/getBuilding.php",
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            type: "get",
+            url: "getBuilding",
             data:{subdivision:subdivision,role:role},
             dataType: "json",
             success: function(msg){
@@ -60,7 +61,7 @@ $(function(){
                     }
                 }else{
                     document.getElementById("building").options.length=0;
-                    for (var i=0; i<msg.length;i++){
+                    for (var i=0; i<msg.length; i++){
                         var obj = document.getElementById("building");
                         var value = msg[i].building_number;
                         obj.options.add(new Option(value));
@@ -80,8 +81,8 @@ $(function(){
         var subdivision = $('#subdivision').val();
         var building_number = Number($('#building').val());
         $.ajax({
-            type: "post",
-            url: "php/getApartment.php",
+            type: "get",
+            url: "getApartment",
             data: {subdivision:subdivision,building_number:building_number},
             dataType: "json",
             success: function (msg){
@@ -93,7 +94,7 @@ $(function(){
                 }
             },
             error:function (msg){
-                console.log(msg);
+                console. log(msg);
             }
         })
     })
@@ -105,8 +106,8 @@ $(function (){
         var result = $('#service').val();
         if ($('#service').val()=="Service"){
             $.ajax({
-                type: "post",
-                url: "php/getService.php",
+                type: "get",
+                url: "getService",
                 data: {subdivision:subdivision},
                 dataType: "json",
                 success: function (msg){
@@ -142,6 +143,51 @@ $(function (){
 })
 
 $(function (){
+    $('#email').blur(function (){
+        var email = $('#email').val();
+        $.ajax({
+            type: "get",
+            url: "getEmail",
+            data: {email:email},
+            dataType: "json",
+            success: function (msg){
+                if (msg.length!=0 && msg[0].available=="1"){
+                    alert("Email has been registed!");
+                    document.getElementById("email").value="";
+                }
+            },
+            error:function (msg){
+                console.log(msg);
+            }
+        })
+    })
+})
+
+$(function (){
+    $('#send_code').click(function (){
+        var name = $('#name').val();
+        var email = $('#email').val();
+        var password = $('#password').val();
+        var phone = $('#phone').val();
+        var address = $('#address').val();
+        var role = $('#role').val();
+
+        $.ajax({
+            type: "get",
+            url: "sendCode",
+            data: {email:email,name:name,password:password,phone:phone,address:address,role:role},
+            dataType: "json",
+            success: function (msg){
+                alert("send email success");
+            },
+            error:function (msg){
+                console.log(msg);
+            }
+        })
+    })
+})
+
+$(function (){
     $('#submit').click(function (){
         var name = $('#name').val();
         var email = $('#email').val();
@@ -171,8 +217,8 @@ $(function (){
             Internet = 0;
         }
         $.ajax({
-            type: "post",
-            url: "php/sign_up.php",
+            type: "get",
+            url: "register",
             data: {name:name,email:email,phone:phone,address:address,role:role,subdivision: subdivision,building:building,apartment:apartment,water:water,gas:gas,electricity:electricity,Internet:Internet,password:password,code:code},
             dataType: "json",
             success: function (msg){
@@ -182,15 +228,15 @@ $(function (){
                         break;
                     case 1:
                         alert("Register successfully,Subdivision");
-                        window.location.href="login.html";
+                        window.location.href="login";
                         break;
                     case 2:
                         alert("Register successfully,Building");
-                        window.location.href="login.html";
+                        window.location.href="login";
                         break;
                     case 3:
                         alert("Register successfully,Apartment");
-                        window.location.href="login.html";
+                        window.location.href="login";
                         break;
                 }
             },
@@ -201,51 +247,6 @@ $(function (){
         })
 
 
-    })
-})
-
-$(function (){
-    $('#email').blur(function (){
-        var email = $('#email').val();
-        $.ajax({
-            type: "post",
-            url: "php/getEmail.php",
-            data: {email:email},
-            dataType: "json",
-            success: function (msg){
-                if (msg.length!=0 && msg[0].available=="1"){
-                    alert("Email has been registed!");
-                    document.getElementById("email").value="";
-                }
-            },
-            error:function (msg){
-                console.log(msg);
-            }
-        })
-    })
-})
-
-$(function (){
-    $('#send_code').click(function (){
-        var name = $('#name').val();
-        var email = $('#email').val();
-        var password = $('#password').val();
-        var phone = $('#phone').val();
-        var address = $('#address').val();
-        var role = $('#role').val();
-
-        $.ajax({
-            type: "post",
-            url: "php/send_code.php",
-            data: {email:email,name:name,password:password,phone:phone,address:address,role:role},
-            dataType: "json",
-            success: function (msg){
-                alert(1);
-            },
-            error:function (msg){
-                console.log(msg);
-            }
-        })
     })
 })
 
