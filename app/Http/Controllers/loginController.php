@@ -26,7 +26,20 @@ class loginController extends Controller
         }
 
         if ($user['password']==$input['password']){
-            return redirect('admin');
+            if ($user['available']=="1"){
+                session()->put('user',$user);
+                if ($user['role']="Subdivision")
+                    return redirect('subdivision');
+                else if ($user['role']="Building")
+                    return redirect('building');
+                else if ($user['role']="Apartment")
+                    return redirect('apartment');
+                else if ($user['role']="Admin")
+                    return redirect('admin');
+            }else{
+                return redirect('login')->withErrors("The user is not activated, please go to the registration page to activate");
+            }
+
         }else{
             return redirect('login')->withErrors("The entered password is incorrect");
         }

@@ -107,7 +107,6 @@
                         <div class="form-group">
                             <input class="btn btn-primary" id="submit" type="button" name="submit" value="Sign Up" onclick="return InputCheck()">
                         </div>
-
                     </form>
                 </div>
             </div>
