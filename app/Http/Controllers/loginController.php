@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\User;
-use Dotenv\Validator;
+
 use Illuminate\Http\Request;
 
 class loginController extends Controller
@@ -15,6 +15,8 @@ class loginController extends Controller
 
     public function doLogin(Request $request){
         $input = $request->except("_token");
+//        $input['email'] = "2@qq.com";
+//        $input['password'] = "123456";
 
         if ($input['email']==""||$input['password']==""){
             return redirect('login')->withErrors("Email and password cannot be empty");
@@ -27,7 +29,7 @@ class loginController extends Controller
 
         if ($user['password']==$input['password']){
             if ($user['available']=="1"){
-                session()->put('user',$user);
+                session()->put('user_email',$user['email']);
                 if ($user['role']="Subdivision")
                     return redirect('subdivision');
                 else if ($user['role']="Building")
