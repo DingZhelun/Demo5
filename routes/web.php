@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('login',"loginController@login");
-Route::post('dologin',"loginController@doLogin");
+Route::get('dologin',"loginController@doLogin");
 Route::get('signup',"signupController@signup");
 Route::get('getBuilding',"signupController@getBuilding");
 Route::get('getApartment',"signupController@getApartment");
@@ -23,6 +23,7 @@ Route::get('getService',"signupController@getService");
 Route::get('getEmail',"signupController@getEmail");
 Route::get('sendCode',"signupController@sendCode");
 Route::get('register',"signupController@register");
+<<<<<<< HEAD
 Route::get('getUser',"subdivisionController@getUser");
 Route::get('setTo',"subdivisionController@setTo");
 Route::get('logout',"subdivisionController@logout");
@@ -51,3 +52,6 @@ Route::get('build_getGraph',"buildingController@getGraph");
 Route::get('build_report',"buildingController@build_report");
 Route::get('build_getReport',"buildingController@build_getReport");
 Route::get('build_message',"buildingController@build_message");
+=======
+Route::get('contact_us',"contactUsController@contactUs");
+>>>>>>> f477ef99c1f7943a1cc1244239fcd46989ad3fb9

@@ -34,7 +34,6 @@ class loginController extends Controller
         if ($user['password']==$input['password']){
             if ($user['available']=="1"){
                 session()->put('user_email',$input['email']);
-
                 if ($user['role']=="Subdivision")
                     return redirect('subdivision');
                 else if ($user['role']=="Building")
