@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Model\User;
-use Dotenv\Validator;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class loginController extends Controller
 {
@@ -15,6 +16,9 @@ class loginController extends Controller
 
     public function doLogin(Request $request){
         $input = $request->except("_token");
+//        $input['email'] = "8@qq.com";
+//        $input['password'] = "123456";
+        $email = $input['email'];
 
         if ($input['email']==""||$input['password']==""){
             return redirect('login')->withErrors("Email and password cannot be empty");
@@ -25,16 +29,19 @@ class loginController extends Controller
             return redirect('login')->withErrors("Email does not exist");
         }
 
+        echo $user;
+
         if ($user['password']==$input['password']){
             if ($user['available']=="1"){
-                session()->put('user',$user);
-                if ($user['role']="Subdivision")
+                session()->put('user_email',$input['email']);
+
+                if ($user['role']=="Subdivision")
                     return redirect('subdivision');
-                else if ($user['role']="Building")
+                else if ($user['role']=="Building")
                     return redirect('building');
-                else if ($user['role']="Apartment")
+                else if ($user['role']=="Apartment")
                     return redirect('apartment');
-                else if ($user['role']="Admin")
+                else if ($user['role']=="Admin")
                     return redirect('admin');
             }else{
                 return redirect('login')->withErrors("The user is not activated, please go to the registration page to activate");
