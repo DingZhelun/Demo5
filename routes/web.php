@@ -23,3 +23,4 @@ Route::get('getService',"signupController@getService");
 Route::get('getEmail',"signupController@getEmail");
 Route::get('sendCode',"signupController@sendCode");
 Route::get('register',"signupController@register");
+Route::get('contact_us',"contactUsController@contactUs");
