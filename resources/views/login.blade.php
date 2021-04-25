@@ -51,8 +51,8 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="whyus.html">Why us</a></li>
-                <li><a href="contact_us.html">Contact us</a></li>
+                <li><a href="whyus">Why us</a></li>
+                <li><a href="contact_us">Contact us</a></li>
                 <li><a href="http://zxd8813.uta.cloud">Blog</a></li>
                 <li><a href="login">Login</a></li>
                 <li><a href="signup">Sign Up</a></li>
