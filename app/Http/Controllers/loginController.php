@@ -16,7 +16,7 @@ class loginController extends Controller
 
     public function doLogin(Request $request){
         $input = $request->except("_token");
-//        $input['email'] = "2@qq.com";
+//        $input['email'] = "8@qq.com";
 //        $input['password'] = "123456";
         $email = $input['email'];
 
@@ -29,10 +29,11 @@ class loginController extends Controller
             return redirect('login')->withErrors("Email does not exist");
         }
 
+        echo $user;
+
         if ($user['password']==$input['password']){
             if ($user['available']=="1"){
                 session()->put('user_email',$input['email']);
-                echo session('user_email');
                 if ($user['role']=="Subdivision")
                     return redirect('subdivision');
                 else if ($user['role']=="Building")
