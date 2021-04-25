@@ -26,6 +26,11 @@ class subdivisionController extends Controller
         return view('sendPage');
     }
 
+    public function messageTest() {
+        return view('messageTest');
+    }
+
+
     public function getUser() {
         $user='';
         if(session('user')!=null)
