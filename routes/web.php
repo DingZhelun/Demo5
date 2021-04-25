@@ -14,8 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('homepage','HomepageController@homepage');
+Route::get('whyus','Whyuscontroller@whyus');
 Route::get('login',"loginController@login");
-Route::get('dologin',"loginController@doLogin");
+Route::post('dologin',"loginController@doLogin");
 Route::get('signup',"signupController@signup");
 Route::get('getBuilding',"signupController@getBuilding");
 Route::get('getApartment',"signupController@getApartment");
@@ -31,6 +33,7 @@ Route::get('sendPage',"subdivisionController@sendPage");
 Route::get('sendMessage',"subdivisionController@sendMessage");
 Route::get('getTo',"subdivisionController@getTo");
 Route::get('messageTest',"subdivisionController@messageTest");
+Route::get('contact_us',"contactUsController@contactUs");
 
 /*
 subdivision
@@ -52,3 +55,30 @@ Route::get('build_getGraph',"buildingController@getGraph");
 Route::get('build_report',"buildingController@build_report");
 Route::get('build_getReport',"buildingController@build_getReport");
 Route::get('build_message',"buildingController@build_message");
+<<<<<<< HEAD
+=======
+
+Route::get('contact_us',"contactUsController@contactUs");
+/*
+admin
+*/
+Route::get('admin',"AdminController@admin");
+Route::get('super_getInfo',"AdminController@super_getInfo");
+Route::get('super_deleteUser',"AdminController@super_deleteUser");
+Route::get('super_defaultInfo',"AdminController@super_defaultInfo");
+Route::get('super_setModify',"AdminController@super_setModify");
+Route::get('superuser_modify',"AdminController@superuser_modify");
+Route::get('admin_message',"AdminController@admin_message");
+Route::get('super_updateUser',"AdminController@super_updateUser");
+
+/*
+apartment
+*/
+Route::get('apartment',"ApartmentController@apartment");
+Route::get('apart_getContact',"ApartmentController@apart_getContact");
+Route::get('apart_sendRequest',"ApartmentController@apart_sendRequest");
+Route::get('apart_report',"ApartmentController@apart_report");
+Route::get('apart_getReport',"ApartmentController@apart_getReport");
+Route::get('apart_message',"ApartmentController@apart_message");
+
+>>>>>>> 89748cefe838d94c9667a7eb2c53e5df7994783f

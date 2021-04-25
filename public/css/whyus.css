@@ -1,0 +1,62 @@
+/* Chen Zhengyu 1001889069 */
+/* Zhu Shixiang 1001889094 */
+/* Ding Zhelun 1001888813 */
+/* use Microsoft YaHei and default font, use grey for color */
+.submenu{
+    padding: 0 0 0 70px;
+    float: left;
+    /*background: aqua;*/
+}
+.welcome{
+    color: #666;
+    font-size: 32px;
+    margin: 0px 0;
+    text-align:center;
+	padding: 60px 0 0 0px;
+}
+
+.biaoti1{
+    color: #666;
+    width: 450px;
+    height: 250px;
+    font-size: 22px;
+    padding: 0px 0 0 0px;
+    float:left
+}
+.biaoti2{
+    color: #666;
+    width: 450px;
+    height: 250px;
+    font-size: 22px;
+    padding: 0px 0 0 0px;
+    float:right
+}
+.biaoti3{
+    color: #666;
+    width: 450px;
+    height: 250px;
+    font-size: 22px;
+    padding: 0px 0 0 0px;
+    float:left
+}
+.biaoti4{
+    color: #666;
+    width: 450px;
+    height: 250px;
+    font-size: 22px;
+    padding: 0px 0 0 0px;
+    float:right;
+}
+.whytitle{
+    color: #666;
+    font-size: 18px;
+    padding: 10px 0 0 0px;
+    float:left
+}
+.picture{
+    text-align:center;
+}
+.kuangjia{
+    width: 1000px;
+    margin: 0 auto;
+}
