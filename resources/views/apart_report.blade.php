@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Subdivision</title>
+    <title>Apartment</title>
     <link href="{{URL::asset('/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{URL::asset('/css/bootstrap-theme.css')}}" rel="stylesheet">
     <link href="{{URL::asset('/css/contact_us.css')}}" rel="stylesheet">
@@ -20,23 +20,37 @@
                 <span class="icon-bar" ></span>
                 <span class="icon-bar" ></span>
             </button>
-            <a class="navbar-brand" href="#" >House Portal</a>
+            <a class="navbar-brand" href="homepage" >House Portal</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="http://zxd8813.uta.cloud">Blog</a></li>
                 <li><a href="login">Logout</a></li>
                 <li><a href="sendPage" onclick="setTo('admin@mavs.uta.edu')">super user</a></li>
-                <li><a href="build_report">Reports</a></li>
-                <li><a href="build_message">Message</a></li>
+                <li><a href="apart_report">Reports</a></li>
+                <li><a href="apart_message">Message</a></li>
                 <li><a href="messageTest">Chat</a></li>
-                <li><a hred="building" id="name"></a></li>
+                <li><a hred="apartment" id="name"></a></li>
             </ul>
         </div>
     </div>
 </nav>
 <div class="contact_txt">
-    <h1 id="title_cu">Building Reports</h1>
+    <h1 id="title_cu">Apartment Reports</h1>
+</div>
+<div class="contact_txt">
+    <ul class="title-log">
+        <li>
+            <div class="login_click">
+                <a href="apartment">Home</a>
+            </div>
+        </li>
+        <li>
+            <div class="login_click">
+                <a href="apart_message">Message</a>
+            </div>
+        </li>
+    </ul>
 </div>
 
 <div id="report_list">
@@ -65,7 +79,7 @@
     function getReport(){
         $.ajax({
             type:'get',
-            url:'build_getReport',
+            url:'apart_getReport',
             success: function(data){
                 console.log(data);
                 document.getElementById("report_list").innerHTML = data;

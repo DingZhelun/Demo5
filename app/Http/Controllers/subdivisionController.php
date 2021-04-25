@@ -26,14 +26,16 @@ class subdivisionController extends Controller
         return view('sendPage');
     }
 
+    public function messageTest() {
+        return view('messageTest');
+    }
+
+
     public function getUser() {
-        $user='';
-        if(session('user')!=null)
-        {
-            $user = session('user_email');
-            return json_encode($user);
-        }
-        return redirect('login');
+
+        $user = session('user_email');
+        return json_encode($user);
+
     }
 
     public function getBuilding() {

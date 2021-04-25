@@ -26,26 +26,31 @@
             <ul class="nav navbar-nav">
                 <li><a href="http://zxd8813.uta.cloud">Blog</a></li>
                 <li><a href="login">Logout</a></li>
-                <li><a href="sendPage" onclick="setTo('admin@mavs.uta.edu')">super user</a></li>
-                <li><a href="build_report">Reports</a></li>
-                <li><a href="build_message">Message</a></li>
+                <li><a href="subd_message">Message</a></li>
                 <li><a href="messageTest">Chat</a></li>
-                <li><a hred="building" id="name"></a></li>
             </ul>
         </div>
     </div>
 </nav>
+
 <div class="contact_txt">
-    <h1 id="title_cu">Building Reports</h1>
+    <h1 id="title_cu">Modify User</h1>
 </div>
 
-<div id="report_list">
-
+<div id="modify_info" class="modify_box">
+    <p>email:</p><textarea id="email" readonly></textarea><br>
+    <p>name:</p><textarea id="name"></textarea><br>
+    <p>tel:</p><textarea id="tel"></textarea><br>
+    <p>password:</p><textarea id="password"></textarea><br>
+    <p>role:</p><textarea id="role"></textarea><br>
+    <input class="request_button" type="button" value="modify" onclick="updateUser()">
 </div>
+
 
 <script>
-    window.onload=getUser();
-    window.onload=getReport();
+    window.onload = getUser();
+    window.onload = defaultInfo();
+
     function getUser(){
         $.ajax({
             type:'get',
@@ -62,21 +67,39 @@
             }
         })
     }
-    function getReport(){
+
+    function defaultInfo() {
         $.ajax({
             type:'get',
-            url:'build_getReport',
+            url:'super_defaultInfo',
+            dataType: "json",
             success: function(data){
-                console.log(data);
-                document.getElementById("report_list").innerHTML = data;
+				console.log(data);
+                document.getElementById("email").innerHTML = data.contact_email;
+                document.getElementById("name").innerHTML = data.contact_name;
+                document.getElementById("tel").innerHTML = data.contact_tel;
+                document.getElementById("password").innerHTML = data.password;
+                document.getElementById("role").innerHTML = data.role;
             }
         })
     }
+
     function logout(){
         $.ajax({
             type:'get',
             url:'logout',
             success: function(data){
+            }
+        })
+    }
+
+    function updateUser() {
+        $.ajax({
+            type:'get',
+            url:'super_updateUser',
+            data: {email: $("#email").val(), name: $("#name").val(), tel:$("#tel").val(), password:$("#password").val(), role:$("#role").val()},
+            success: function(data){
+                alert('modify user success');
             }
         })
     }

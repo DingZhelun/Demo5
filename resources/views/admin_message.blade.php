@@ -26,26 +26,38 @@
             <ul class="nav navbar-nav">
                 <li><a href="http://zxd8813.uta.cloud">Blog</a></li>
                 <li><a href="login">Logout</a></li>
-                <li><a href="sendPage" onclick="setTo('admin@mavs.uta.edu')">super user</a></li>
-                <li><a href="build_report">Reports</a></li>
-                <li><a href="build_message">Message</a></li>
+                <li><a href="admin_message">Message</a></li>
                 <li><a href="messageTest">Chat</a></li>
-                <li><a hred="building" id="name"></a></li>
             </ul>
         </div>
     </div>
 </nav>
+
 <div class="contact_txt">
-    <h1 id="title_cu">Building Reports</h1>
+    <h1 id="title_cu">Message Page</h1>
+</div>
+<div class="contact_txt">
+    <ul class="title-log">
+        <li>
+            <div class="login_click">
+                <a href="sendPage">Send Message</a>
+            </div>
+        </li>
+    </ul>
 </div>
 
-<div id="report_list">
-
+<div id="message_list">
+    
 </div>
+
+
+
+
 
 <script>
-    window.onload=getUser();
-    window.onload=getReport();
+    window.onload = getUser();
+    window.onload = getMessage();
+
     function getUser(){
         $.ajax({
             type:'get',
@@ -62,13 +74,13 @@
             }
         })
     }
-    function getReport(){
+
+    function getMessage(){
         $.ajax({
             type:'get',
-            url:'build_getReport',
+            url:'getMessage',
             success: function(data){
-                console.log(data);
-                document.getElementById("report_list").innerHTML = data;
+                document.getElementById("message_list").innerHTML = data;
             }
         })
     }
@@ -81,6 +93,5 @@
         })
     }
 </script>
-
 </body>
 </html>

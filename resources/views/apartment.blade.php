@@ -20,58 +20,88 @@
                 <span class="icon-bar" ></span>
                 <span class="icon-bar" ></span>
             </button>
-            <a class="navbar-brand" href="#" >House Portal</a>
+            <a class="navbar-brand" href="homepage" >House Portal</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="http://zxd8813.uta.cloud">Blog</a></li>
                 <li><a href="login">Logout</a></li>
                 <li><a href="sendPage" onclick="setTo('admin@mavs.uta.edu')">super user</a></li>
-                <li><a href="build_report">Reports</a></li>
-                <li><a href="build_message">Message</a></li>
+                <li><a href="apart_report">Reports</a></li>
+                <li><a href="apart_message">Message</a></li>
                 <li><a href="messageTest">Chat</a></li>
-                <li><a hred="building" id="name"></a></li>
+                <li><a hred="apartment" id="name"></a></li>
             </ul>
         </div>
     </div>
 </nav>
+
 <div class="contact_txt">
-    <h1 id="title_cu">Building Reports</h1>
+    <h1 id="title_cu">Apartment Page</h1>
+</div>
+<div id="apart_info">
+    
+</div>
+<div class="request_title">
+    <h1 id="request_title">Send Request</h1>
+</div>
+<div class="contact_txt">
+    <textarea id="textarea" class="request_text" type="text" name="msg"></textarea>
+    <input class="request_button" type="button" value="Send" onclick="sendRequest()">
 </div>
 
-<div id="report_list">
-
-</div>
 
 <script>
-    window.onload=getUser();
-    window.onload=getReport();
-    function getUser(){
+    window.onload = getUser();
+    window.onload = getContact();
+	function getUser(){
+	$.ajax({
+		type:'get',
+		url:'getUser',
+		dataType: 'json',
+		success: function(data){
+			if(data===0){
+				alert("please login!");
+				window.location.href="login.html";
+			}
+			else{
+				document.getElementById("name").innerHTML = data;
+			}
+		}
+	})
+}
+	function getContact(){
+		$.ajax({
+			type:'get',
+			url:'apart_getContact',
+			success: function(data){
+				document.getElementById("apart_info").innerHTML = data;
+		}
+	})
+	}
+
+    function sendRequest(){
         $.ajax({
             type:'get',
-            url:'getUser',
-            dataType: 'json',
+            url:'apart_sendRequest',
+            data: {msg:$('#textarea').val()},
             success: function(data){
-                if(data===0){
-                    alert("please login!");
-                    window.location.href="login.html";
-                }
-                else{
-                    document.getElementById("name").innerHTML = data;
-                }
+                $("#textarea").val("");
+                alert('send request success');
             }
         })
     }
-    function getReport(){
+	
+    function setTo(user){
         $.ajax({
             type:'get',
-            url:'build_getReport',
+            url:'setTo',
+            data: {to: user},
             success: function(data){
-                console.log(data);
-                document.getElementById("report_list").innerHTML = data;
             }
         })
     }
+	
     function logout(){
         $.ajax({
             type:'get',
@@ -80,7 +110,9 @@
             }
         })
     }
-</script>
 
+
+    
+</script>
 </body>
 </html>
