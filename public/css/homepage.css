@@ -1,0 +1,27 @@
+/* Chen Zhengyu 1001889069 */
+/* Zhu Shixiang 1001889094 */
+/* Ding Zhelun 1001888813 */
+/* use Microsoft YaHei and default font, use grey for color */
+.submenu{
+    padding: 0 0 0 70px;
+    float: left;
+    /*background: aqua;*/
+}
+.welcome{
+	color: #666;
+    font-size: 32px;
+    margin: 55px 0;
+    text-align:center;
+	padding: 0px 0 0 0px;
+}
+.welcome2{
+    color: #666;
+    font-size: 22px;
+    margin: 10px 0;
+    text-align:center;
+	padding: 0px 0 0 0px;
+}
+.picture{
+    text-align:center;
+}
+
