@@ -12,7 +12,10 @@ $result = $mysqli -> query('
 <html>
 <head>
 	<title>Chat App In my WDM Class</title>
-
+    <link href="{{URL::asset('/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{URL::asset('/css/bootstrap-theme.css')}}" rel="stylesheet">
+    <link href="{{URL::asset('/css/contact_us.css')}}" rel="stylesheet">
+    <link href="{{URL::asset('/css/subdivision.css')}}" rel="stylesheet">
 <style type="text/css">
 	* {
 		box-sizing:border-box;
@@ -42,6 +45,29 @@ $result = $mysqli -> query('
 
 </head>
 <body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only " >Toggle navigation</span>
+                <span class="icon-bar" ></span>
+                <span class="icon-bar" ></span>
+                <span class="icon-bar" ></span>
+            </button>
+            <a class="navbar-brand" href="#" >House Portal</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="http://zxd8813.uta.cloud">Blog</a></li>
+                <li><a href="login">Logout</a></li>
+                <li><a id="name"></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="contact_txt">
+    <h1 id="title_cu">Online Chat</h1>
+</div>
 <div id="content">
 	<div id="message-box">
 		<?php foreach ($result as $row) : ?>

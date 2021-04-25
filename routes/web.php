@@ -55,8 +55,6 @@ Route::get('build_getGraph',"buildingController@getGraph");
 Route::get('build_report',"buildingController@build_report");
 Route::get('build_getReport',"buildingController@build_getReport");
 Route::get('build_message',"buildingController@build_message");
-<<<<<<< HEAD
-=======
 
 Route::get('contact_us',"contactUsController@contactUs");
 /*
@@ -81,4 +79,3 @@ Route::get('apart_report',"ApartmentController@apart_report");
 Route::get('apart_getReport',"ApartmentController@apart_getReport");
 Route::get('apart_message',"ApartmentController@apart_message");
 
->>>>>>> 89748cefe838d94c9667a7eb2c53e5df7994783f

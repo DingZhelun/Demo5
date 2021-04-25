@@ -29,7 +29,8 @@
                 <li><a href="sendPage" onclick="setTo('admin@mavs.uta.edu')">super user</a></li>
                 <li><a href="apart_report">Reports</a></li>
                 <li><a href="apart_message">Message</a></li>
-                <li><a hred="subdivision" id="name"></a></li>
+                <li><a href="messageTest">Chat</a></li>
+                <li><a hred="apartment" id="name"></a></li>
             </ul>
         </div>
     </div>

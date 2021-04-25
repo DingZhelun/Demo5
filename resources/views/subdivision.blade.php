@@ -92,7 +92,7 @@
             }
         })
     }
-
+    window.onload = getUser();
     function getUser(){
         $.ajax({
             type:'get',
@@ -108,7 +108,7 @@
     // import * as echarts from 'echarts';
     // document.getElementById("name").innerHTML = name;
     var building,ele,gas,water;
-    window.onload = getUser();
+    
     window.onload = getBuilding();
     window.onload = getGraph();
     

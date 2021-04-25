@@ -27,6 +27,7 @@
                 <li><a href="http://zxd8813.uta.cloud">Blog</a></li>
                 <li><a href="login">Logout</a></li>
                 <li><a href="admin_message">Message</a></li>
+                <li><a href="messageTest">Chat</a></li>
             </ul>
         </div>
     </div>

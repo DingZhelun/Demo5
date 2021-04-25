@@ -32,13 +32,10 @@ class subdivisionController extends Controller
 
 
     public function getUser() {
-        $user='';
-        if(session('user')!=null)
-        {
-            $user = session('user_email');
-            return json_encode($user);
-        }
-        return redirect('login');
+
+        $user = session('user_email');
+        return json_encode($user);
+
     }
 
     public function getBuilding() {
